@@ -1,0 +1,11 @@
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # www → non-www（301・canonical を非wwwに統一）
+  RewriteCond %{HTTP_HOST} ^www\.sonaeru-dougu\.com$ [NC]
+  RewriteRule ^(.*)$ https://sonaeru-dougu.com/$1 [R=301,L]
+</IfModule>
+
+# .git をWebから見えないようにする
+RedirectMatch 404 /\.git
