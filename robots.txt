@@ -1,4 +1,57 @@
+# 既定: 通常の検索エンジン（Googlebot等）とAI検索ボットは許可する
 User-agent: *
+Allow: /
+
+# === AIの「学習（モデル訓練）」目的のクロールは拒否 ===
+# OpenAI 学習用
+User-agent: GPTBot
+Disallow: /
+
+# Anthropic 学習用
+User-agent: ClaudeBot
+Disallow: /
+
+# Anthropic 旧学習用トークン
+User-agent: anthropic-ai
+Disallow: /
+
+# Google 生成AI(Gemini等)の学習用。※通常検索のGooglebotには影響しない
+User-agent: Google-Extended
+Disallow: /
+
+# Apple 生成AI 学習用
+User-agent: Applebot-Extended
+Disallow: /
+
+# Meta(Llama等) 学習用
+User-agent: meta-externalagent
+Disallow: /
+
+# Common Crawl(各社の学習データセットに使われる)
+User-agent: CCBot
+Disallow: /
+
+# ByteDance 学習用
+User-agent: Bytespider
+Disallow: /
+
+# === AIの「検索・回答エンジン」用ボットは明示的に許可（学習用とは別物） ===
+# OpenAI 検索 / ユーザー操作時の取得
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic 検索 / ユーザー操作時の取得
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Perplexity(AI検索)
+User-agent: PerplexityBot
 Allow: /
 
 Sitemap: https://sonaeru-dougu.com/sitemap-index.xml
